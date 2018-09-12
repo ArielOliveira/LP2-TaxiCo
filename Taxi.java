@@ -44,4 +44,23 @@ public class Taxi extends Vehicle
         super.setDestination(null);
         free = true;
     }
+
+    public boolean isFree()
+    {
+	return free;
+    }
+
+    @Override
+    public String getStatus()
+    {
+	if (super.getDestination() == null) 
+	{	    	
+            return super.getID() + " at " + super.getLocation() + ": Free for Booking";
+	} 
+
+	else
+	{
+	    return super.getStatus();
+	}
+    }
 }

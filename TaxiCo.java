@@ -107,6 +107,27 @@ public class TaxiCo
             System.out.println(vehicle.getStatus());
         }
     }
+
+    public Vehicle bestFor(String destination)
+    {
+	Vehicle v = null;
+
+        for(Vehicle vehicle : vehicleFleet)
+	{
+	    if (destination.equalsIgnoreCase(vehicle.getDestination()))
+	    {
+		if (vehicle instanceof Shuttle)
+		    v = vehicle;
+	    }
+	    else if (vehicle instanceof Taxi)
+	    {
+		    if(((Taxi)vehicle).isFree())
+			v = vehicle;
+	    }
+       }
+
+	return v;
+    }
     
     /**
      * Put all the possible shuttle destinations in a list.
@@ -121,4 +142,6 @@ public class TaxiCo
         destinations.add("Sainsbury's");
         destinations.add("Darwin");
     }
+
+    
 }

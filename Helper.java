@@ -61,9 +61,19 @@ public class Helper
 
         public void testShuttle()
 	{
-		Shuttle shuttle1 = (Shuttle) taxiCo1.lookup("Car #3");
+		Shuttle shuttle1 = (Shuttle) taxiCo1.lookup("Shuttle #3");
+		System.out.println(shuttle1.getStatus());
 		
-		
+	}
+
+	public void testFleet()
+	{
+		taxiCo1.showStatus();
+	}
+
+	public void testBestFor()
+	{
+		System.out.println(taxiCo1.bestFor("Sainsbury's").getID());
 	}
 
 	public static void main(String[] args) {
@@ -73,6 +83,21 @@ public class Helper
 		
 		System.out.println("Segundo teste");
 		helper.testArrived();
+
+		System.out.println();
+
+                System.out.println("Mostrando Rota do Transporte");
+		helper.testShuttle();
+
+		System.out.println();
+
+		System.out.println("Situação da Frota");
+		helper.testFleet();
+
+		System.out.println();
+
+		System.out.println("Melhor veículo para Sainsbury's");
+		helper.testBestFor();
 	}
 }
 
